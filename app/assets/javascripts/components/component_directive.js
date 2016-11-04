@@ -25,14 +25,15 @@ app.directive('component', ['$compile', "$rootScope", "$window", "tinyMCEService
           console.log('enabled');
         }
       });
+
       // adds col-xs-12 and tipped
       angular.element(element)
         .addClass('col-xs-12 tipped');
 
       $rootScope.$on('component.changed', function(ev, compId){
         if(scope.component.id == compId){
-          element.remove();
           scope.$destroy();
+          element.remove();
         }
       });
 
@@ -92,5 +93,3 @@ app.directive('component', ['$compile', "$rootScope", "$window", "tinyMCEService
     }
   };
 }]);
-
-
